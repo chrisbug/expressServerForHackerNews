@@ -30,15 +30,16 @@ router.get('/hnarticle/:id', function(req, res, next){
 });
 
 //save article
-router.post('/hnarticle', function(req, res, next){
+router.post('/hnarticle/save', function(req, res, next){
   var hnArticle = req.body;
-  if(!hnArticle.title || !hnArticle.description || !hnArticle.article || !hnArticle.imageLink || !hnArticle.likes){
+  hnArticle.likes = 0;
+  if(!hnArticle.title || !hnArticle.description || !hnArticle.article || !hnArticle.imageLink){
       res.status(400);
       res.json({
         "error":"invalid data"
       });
   } else {
-    db.save(hnArticle, function(err, result){
+    db.hnArticles.save(hnArticle, function(err, result){
       if(err){
         res.send(err);
       } else {
