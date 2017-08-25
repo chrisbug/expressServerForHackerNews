@@ -51,12 +51,10 @@ router.post('/hnarticle/save', function(req, res, next){
 
 //update hnarticles
 router.put('/hnarticle/:id', function(req, res, next){
+  console.log('starting update');
   var hnArticle = req.body;
   var updObj = {};
-  if(hnArticle.isCompleted){
-    updObj.isCompleted = hnArticle.isCompleted;
-  }
-  if(hnArticle.title && hnArticle.description && hnArticle.article && hnArticle.imageLink && hnArticle.likes){
+  if(hnArticle.title && hnArticle.description && hnArticle.article && hnArticle.imageLink){
     updObj.title = hnArticle.title;
     updObj.description = hnArticle.description;
     updObj.article = hnArticle.article;
@@ -69,7 +67,8 @@ router.put('/hnarticle/:id', function(req, res, next){
       "error":"invalid data"
     });
   } else {
-    db.hnArticle.update({
+    console.log('pushing the update to db');
+    db.hnArticles.update({
       _id: mongojs.ObjectId(req.params.id)
     }, updObj, {}, function(err, result){
         if(err){
@@ -84,7 +83,7 @@ router.put('/hnarticle/:id', function(req, res, next){
 
   //remove hnarticles
   router.delete('/hnarticle/:id', function(req, res, next){
-      db.hnArticle.remove({
+      db.hnArticles.remove({
         _id: mongojs.ObjectId(req.params.id)
       },'', function(err, result){
         if(err){

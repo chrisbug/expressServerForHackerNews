@@ -12,7 +12,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static(path.join(__dirname, 'client')));
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header({'Content-Type': 'application/json; charset=UTF-8',
+                                     'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
+                                     'Access-Control-Allow-Origin': '*',
+                                     'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+                  });
   next();
 });
 
