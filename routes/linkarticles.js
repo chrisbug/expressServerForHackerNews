@@ -28,15 +28,17 @@ router.get('/linkarticle/:id', function(req, res, next){
 });
 
 //save article
-router.post('/linkarticle', function(req, res, next){
+router.post('/linkarticle/save', function(req, res, next){
+  console.log('starting to save linka')
   var linkArticle = req.body;
-  if(!linkArticle.title || !linkArticle.description || !linkArticle.link || !linkArticle.likes){
+  if(!linkArticle.title || !linkArticle.description || !linkArticle.link){
       res.status(400);
       res.json({
         "error":"invalid data"
       });
   } else {
-    db.save(linkArticle, function(err, result){
+    console.log('running save for link article')
+    db.linkArticles.save(linkArticle, function(err, result){
       if(err){
         res.send(err);
       } else {
@@ -53,7 +55,7 @@ router.put('/linkarticle/:id', function(req, res, next){
   if(linkArticle.isCompleted){
     updObj.isCompleted = linkArticle.isCompleted;
   }
-  if(linkArticle.title && linkArticle.description && linkArticle.link && linkArticle.likes){
+  if(linkArticle.title && linkArticle.description && linkArticle.link){
     updObj.title = linkArticle.title;
     updObj.description = linkArticle.description;
     updObj.link = linkArticle.link;
@@ -65,7 +67,7 @@ router.put('/linkarticle/:id', function(req, res, next){
       "error":"invalid data"
     });
   } else {
-    db.linkArticle.update({
+    db.linkArticles.update({
       _id: mongojs.ObjectId(req.params.id)
     }, updObj, {}, function(err, result){
         if(err){
@@ -80,7 +82,7 @@ router.put('/linkarticle/:id', function(req, res, next){
 
   //remove linkarticles
   router.delete('/linkarticle/:id', function(req, res, next){
-      db.linkArticle.remove({
+      db.linkArticles.remove({
         _id: mongojs.ObjectId(req.params.id)
       },'', function(err, result){
         if(err){
