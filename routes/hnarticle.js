@@ -82,7 +82,7 @@ router.put('/hnarticle/:id', function(req, res, next){
 });
 
   //remove hnarticles
-  router.delete('/hnarticle/:id', function(req, res, next){
+  router.delete('/hnarticle/remove/:id', function(req, res, next){
       db.hnArticles.remove({
         _id: mongojs.ObjectId(req.params.id)
       },'', function(err, result){

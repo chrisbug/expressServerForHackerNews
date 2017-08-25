@@ -81,7 +81,7 @@ router.put('/linkarticle/:id', function(req, res, next){
 });
 
   //remove linkarticles
-  router.delete('/linkarticle/:id', function(req, res, next){
+  router.delete('/linkarticle/remove/:id', function(req, res, next){
       db.linkArticles.remove({
         _id: mongojs.ObjectId(req.params.id)
       },'', function(err, result){
