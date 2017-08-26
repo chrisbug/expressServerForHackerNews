@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-8">
+    <h2>Top Hacker Article</h2>
+    <hr>
+    <app-hn-article-list-item
+      [hnArticle]="hnMostLikedArticle"
+      [index]=hnid
+    ></app-hn-article-list-item>
+  </div>
+  <div class="col-xs-4">
+    <h2>Top Link Article</h2>
+    <hr>
+    <app-link-article-item
+      [linkArticle]="linkMostLikedArticle"
+      [index]=linkid
+    ></app-link-article-item>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <router-outlet></router-outlet>
+  </div>
+</div>

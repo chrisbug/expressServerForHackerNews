@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-6">
+    <app-hn-article-list-item
+      *ngFor="let hnArticle of hnArticles; let i = index"
+      [hnArticle]="hnArticle"
+      [index]=i
+    ></app-hn-article-list-item>
+  </div>
+  <div class="col-xs-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div class="row">
+  <button type="button" class="btn btn-danger" (click)="onAddArticle()">Add Article</button>
+</div>

@@ -1,0 +1,11 @@
+a{
+  color: #2C3539;
+}
+
+a:hover{
+  color: red;
+}
+
+span:hover{
+  cursor: pointer;
+}

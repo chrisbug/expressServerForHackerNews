@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-12">
+      <img [src]="hnArticle.imageLink" alt="{{ hnArticle.title }}">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ hnArticle.title}}</h1>
+    <p>{{ hnArticle.description }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p> {{ hnArticle.article }}</p>
+    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" (click)="onAddLike()"></span>
+    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true" (click)="onAddDisLike()"></span>
+       <p>{{hnArticle.likes}}</p>
+  </div>
+</div>

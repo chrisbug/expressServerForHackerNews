@@ -1,0 +1,12 @@
+<div class="pull left">
+ <h4 class="list-group-item-heading"><a [href]="linkArticle.link">{{ linkArticle.title }}</a></h4>
+ <p class="list-group-item-text">{{ linkArticle.description }}</p>
+ <div class="row">
+   <div class="col-xs-3">
+  <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" (click)="onAddLike()"></span>
+  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true" (click)="onAddDisLike()"></span>
+     {{linkArticle.likes}}
+   </div>
+ </div>
+</div>
+<hr>

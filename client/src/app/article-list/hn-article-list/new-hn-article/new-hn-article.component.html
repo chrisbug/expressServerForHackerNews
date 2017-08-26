@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="title">Title</label>
+          <input type="text"
+            id="title"
+            name="title"
+            class="form-control"
+            ngModel
+            required
+            >
+        </div>
+        <div class="col-sm-8 form-group">
+          <label for="description">Description</label>
+          <input type="text"
+            id="description"
+            name="description"
+            class="form-control"
+            ngModel
+            required
+            >
+        </div>
+        <div class="col-sm-8 form-group">
+          <label for="article">Article</label>
+          <textarea
+            name="article"
+            id="article"
+            class="form-control"
+            ngModel
+            rows="8"
+            cols="80"
+            required></textarea>
+        </div>
+        <div class="col-sm-8 form-group">
+          <label for="imageLink">Image Link</label>
+          <input type="text"
+            id="imageLink"
+            name="imageLink"
+            class="form-control"
+            ngModel
+            required
+            >
+        </div>
+      </div>
+      <button type="submit" class="btn btn-danger" [disabled]="!f.valid">Add Article</button>
+    </form>
+  </div>
+</div>

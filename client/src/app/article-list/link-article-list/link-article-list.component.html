@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-6">
+    <app-link-article-item
+      *ngFor="let linkArticle of articles; let i = index"
+      [linkArticle]="linkArticle"
+      [index]=i
+    ></app-link-article-item>
+  </div>
+  <div class="cols-xs-5">
+    <router-outlet></router-outlet>
+    <hr>
+  </div>
+  <div class="cols-xs-12">
+    <button type="button" class="btn btn-danger" (click)="onAddArticle()">Add Article</button>
+  </div>
+</div>
